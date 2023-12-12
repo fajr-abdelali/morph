@@ -1,11 +1,10 @@
 <section>
     <app-image-upload  #firstImage></app-image-upload>
 
-    <div class="drag-container" *ngIf="firstImage?.statusChanged | async">
+    <div class="drag-container" *ngIf="(firstImage?.statusChanged | async) && drag">
 
         <img class="icon_upload" src="../../../assets/icons/plus-svgrepo-com.svg" width="45" height="45"
         cdkDrag
-        (cdkDragStarted)="onDragStarted($event)" 
         (cdkDragEnded)="onDragEnded($event)"
         cdkDragBoundary=".drag-container"
         cdkDragLockAxis="x"

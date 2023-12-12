@@ -1,4 +1,4 @@
-import { Component,ViewChild  } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ImageUploadComponent } from './component/image-upload/image-upload.component';
 
 @Component({
@@ -8,19 +8,16 @@ import { ImageUploadComponent } from './component/image-upload/image-upload.comp
 })
 export class AppComponent {
   title = 'morph';
+  drag: boolean = true;
   morph: boolean = false;
 
 
   @ViewChild('firstImage') firstImage?: ImageUploadComponent;
   @ViewChild('secondImage') secondImage?: ImageUploadComponent;
 
-  onDragStarted(event: any) {
-    console.log('drag')
-  }
-
   onDragEnded(event: any) {
     this.morph = true;
-    console.log(this.morph)
+    this.drag = false;
   }
 
 }

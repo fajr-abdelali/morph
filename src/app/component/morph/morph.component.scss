@@ -1,0 +1,19 @@
+:host {
+    flex: 1;
+    max-width: 350px;
+    margin: 0 5em ;
+
+    .img-container {
+        background-color: #ffffff;
+        border-radius: 5px;
+        margin: 10px 0 15px;
+        width: 350px;
+        text-align: center;
+
+        img {
+            object-fit: fill;
+            object-position: center;
+            max-height: 14em;
+        }
+    }
+}
