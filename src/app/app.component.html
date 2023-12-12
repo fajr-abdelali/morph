@@ -1,4 +1,19 @@
 <section>
-    <app-image-upload id="firstImage" #firstImage></app-image-upload>
-    <app-image-upload id="secondImage" #secondImage *ngIf="firstImage?.statusChanged | async"></app-image-upload>
+    <app-image-upload  #firstImage></app-image-upload>
+
+    <div class="drag-container" *ngIf="firstImage?.statusChanged | async">
+
+        <img class="icon_upload" src="../../../assets/icons/plus-svgrepo-com.svg" width="45" height="45"
+        cdkDrag
+        (cdkDragStarted)="onDragStarted($event)" 
+        (cdkDragEnded)="onDragEnded($event)"
+        cdkDragBoundary=".drag-container"
+        cdkDragLockAxis="x"
+        *ngIf="secondImage?.statusChanged | async"
+        >
+        <div class="line"></div>
+    </div>
+    <app-morph *ngIf="morph" ></app-morph>
+
+    <app-image-upload #secondImage *ngIf="firstImage?.statusChanged | async"></app-image-upload>
 </section>

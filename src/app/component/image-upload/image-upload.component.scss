@@ -1,42 +1,47 @@
-.upload-img-container {
-  .drag-img-area {
-    background-color: #ffffff;
-    border-radius: 5px;
-    margin: 10px 0 15px;
-    width: 350px;
-    text-align: center;
-
-    
-    label {
-      display: inline-block;
-      padding: 30px 50px;
-      width: 100%;
-      cursor: pointer;
-      input[type="file"] {
-        display: none;
-      }
-    }
-
-    .img-display-container {
-      opacity: 0;
-      transition: all 2s ease-in;
-
-      img {
-        object-fit: fill;
-        object-position: center;
-        max-height: 14em;
-      }
-    }
-
-    &.image-visible {
+:host{
+  flex: 1;
+  max-width: 350px;
+  .upload-img-container {
+    .drag-img-area {
+      background-color: #ffffff;
+      border-radius: 5px;
+      margin: 10px 0 15px;
+      width: 350px;
+      text-align: center;
+  
+      
       label {
-        display: none;
+        display: inline-block;
+        padding: 30px 50px;
+        width: 100%;
+        cursor: pointer;
+        input[type="file"] {
+          display: none;
+        }
       }
-
+  
       .img-display-container {
-        opacity: 1;
+        opacity: 0;
+        transition: all 2s ease-in;
+  
+        img {
+          object-fit: fill;
+          object-position: center;
+          max-height: 14em;
+        }
       }
-
+  
+      &.image-visible {
+        label {
+          display: none;
+        }
+  
+        .img-display-container {
+          opacity: 1;
+        }
+  
+      }
     }
   }
+  
 }
