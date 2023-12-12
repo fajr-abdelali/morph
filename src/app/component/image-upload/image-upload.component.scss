@@ -1,0 +1,43 @@
+.upload-img-container {
+  .drag-img-area {
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin: 10px 0 15px;
+    width: 350px;
+    text-align: center;
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .custom-file-upload {
+      border-radius: 5px;
+      display: inline-block;
+      padding: 30px 50px;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .img-display-container {
+      opacity: 0;
+      transition: all 2s ease-in;
+
+      img {
+        object-fit: fill;
+        object-position: center;
+        max-height: 14em;
+      }
+    }
+
+    &.image-visible {
+      .custom-file-upload {
+        display: none;
+      }
+
+      .img-display-container {
+        opacity: 1;
+      }
+
+    }
+  }
+}
