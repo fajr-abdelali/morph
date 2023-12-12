@@ -6,16 +6,15 @@
     width: 350px;
     text-align: center;
 
-    input[type="file"] {
-      display: none;
-    }
-
-    .custom-file-upload {
-      border-radius: 5px;
+    
+    label {
       display: inline-block;
       padding: 30px 50px;
       width: 100%;
       cursor: pointer;
+      input[type="file"] {
+        display: none;
+      }
     }
 
     .img-display-container {
@@ -30,7 +29,7 @@
     }
 
     &.image-visible {
-      .custom-file-upload {
+      label {
         display: none;
       }
 

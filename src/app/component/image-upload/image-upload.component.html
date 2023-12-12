@@ -1,9 +1,9 @@
 <div class="upload-img-container">
   <div class="drag-img-area" [class.image-visible]="imageState">
-    <label for="file-upload" class="custom-file-upload">
+    <label>
       <img class="icon_upload" src="../../../assets/icons/plus-svgrepo-com.svg" width="40" height="40">
+      <input name="file-upload" type="file" (change)="onFileSelected($event)" accept="image/*">
     </label>
-    <input id="file-upload" type="file" (change)="onFileSelected($event)" accept="image/*">
     <div class="img-display-container">
       <img class="image-display" *ngIf="imageUrl" [src]="imageUrl" alt="Selected Image" />
     </div>

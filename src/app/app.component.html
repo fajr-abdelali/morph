@@ -1,5 +1,4 @@
 <section>
- 
-<app-image-upload></app-image-upload>
-
+    <app-image-upload id="firstImage" #firstImage></app-image-upload>
+    <app-image-upload id="secondImage" #secondImage *ngIf="firstImage?.statusChanged | async"></app-image-upload>
 </section>

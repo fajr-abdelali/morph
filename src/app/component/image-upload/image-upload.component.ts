@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter  } from '@angular/core';
 
 
 @Component({
@@ -7,12 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./image-upload.component.scss'],
 })
 export class ImageUploadComponent {
+  @Output() statusChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
   selectedImage: any = null;
-  imageUrl: string = ''; // Set this to the URL of the uploaded image
+  imageUrl: string = ''; 
   imageState: boolean = false;
 
 
+
   onFileSelected(event: any): void {
+    this.imageState = false;
     const file: File = event.target.files[0];
     this.uploadAndDisplayImage(file);
   }
@@ -24,10 +27,18 @@ export class ImageUploadComponent {
     reader.onload = (e: any) => {
       this.imageUrl = e.target.result;
       this.imageState = true;
+      this.changeStatus();
     };
 
     reader.readAsDataURL(file);
   }
+
+  changeStatus() {
+    if (this.imageState) {
+      this.statusChanged.emit(true);
+    }
+  }
+
 
 
 }
